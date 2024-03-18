@@ -1,1 +1,30 @@
-Hello World
+<!DOCTYPE html>
+
+<html lang=en-us>
+	<head>
+		<meta charset=utf-8>
+		<meta content="text/html; charset=utf-8" http-equiv=Content-Type>
+
+		<title>Raylib activities</title>
+
+		<style>
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			display: block;
+			border: none;
+			background-color: black;
+		</style>
+	</head>
+
+	<body>
+		<canvas id="canvas" oncontextmenu="event.preventDefault()" tabindex="-1"></canvas>
+		<script>
+			var Module = {
+				canvas: document.getElementById("canvas"),
+			};
+		</script>
+		<script async type="text/javascript" src="game.js"></script>
+	</body>
+</html>
