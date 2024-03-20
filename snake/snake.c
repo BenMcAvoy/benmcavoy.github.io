@@ -47,8 +47,8 @@ typedef struct Food {
 //------------------------------------------------------------------------------------
 // Global Variables Declaration
 //------------------------------------------------------------------------------------
-static const int screenWidth = 400;
-static const int screenHeight = 400;
+static const int screenWidth = 640;
+static const int screenHeight = 640;
 
 static int framesCounter = 0;
 static bool gameOver = false;
@@ -78,13 +78,13 @@ int main(void) {
 	// Initialization (Note windowTitle is unused on Android)
 	//---------------------------------------------------------
 	InitWindow(screenWidth, screenHeight, "classic game: snake");
-
 	InitGame();
 
 #if defined(PLATFORM_WEB)
 	emscripten_run_script("document.body.style.backgroundColor = 'black';");
-	emscripten_run_script("Module._SetWindowSize(window.innerWidth, window.innerHeight);");
-	emscripten_run_script("addEventListener('resize', (event) => {Module._SetWindowSize(window.innerWidth, window.innerHeight)});");
+	emscripten_run_script("var s = document.body.querySelector('canvas.emscripten').style;s.position='absolute';s.top='50%';s.left='50%';s.transform='translate(-50%,-50%)';");
+	/* emscripten_run_script("Module._SetWindowSize(window.innerWidth, window.innerHeight);"); */
+	/* emscripten_run_script("addEventListener('resize', (event) => {Module._SetWindowSize(window.innerWidth, window.innerHeight)});"); */
 	emscripten_set_main_loop(UpdateDrawFrame, 60, 1);
 #else
 	SetTargetFPS(60);
